@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { Avatar } from "@radix-ui/react-avatar"
 
 export default function ShrinkingNavbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -55,13 +56,20 @@ export default function ShrinkingNavbar() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
               <motion.div
-                className={`flex items-center justify-center bg-orange-500 rounded-full transition-all duration-300 ${
+                className={`flex items-center justify-center  rounded-full transition-all duration-300 ${
                   scrolled ? "h-9 w-9" : "h-12 w-12"
                 }`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="font-bold text-white">YU</span>
+                <Avatar >
+                  <img
+                    src="/Avatar.ico"
+                    alt="Avatar"
+                    className={`object-cover rounded-full ${
+                      scrolled? "h-8 w-8" : "h-10 w-10"
+                    }`}/>
+                </Avatar>
               </motion.div>
               <span
                 className={`font-bold transition-all duration-300 ${

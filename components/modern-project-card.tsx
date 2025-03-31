@@ -14,6 +14,7 @@ interface ModernProjectCardProps {
   link: string
   index?: number
   className?: string
+  isVideo?: boolean
 }
 
 export default function ModernProjectCard({
@@ -24,6 +25,7 @@ export default function ModernProjectCard({
   link,
   index = 0,
   className,
+  isVideo = false,
 }: ModernProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -41,12 +43,25 @@ export default function ModernProjectCard({
       onHoverEnd={() => setIsHovered(false)}
     >
       <div className="relative h-64 w-full overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+        {isVideo ? (
+          <video
+            src={image}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            style={{ objectFit: 'cover' }}
+          />
+        ) : (
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
 
@@ -65,15 +80,17 @@ export default function ModernProjectCard({
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <a
-            href={link}
-            className="flex items-center font-medium hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Project
-            <ExternalLink className="ml-1" size={16} />
-          </a>
+          {category === "Email Marketing & Copywriting" && (
+            <a
+              href={link}
+              className="flex items-center font-medium hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Project
+              <ExternalLink className="ml-1" size={16} />
+            </a>
+          )}
         </motion.div>
       </div>
     </motion.div>

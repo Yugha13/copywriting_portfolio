@@ -38,9 +38,8 @@ export default function FloatingContact() {
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
           >
             <div className="flex flex-col space-y-3">
-              <Link
-                href="#contact"
-                onClick={handleLinkClick}
+              <a
+                href="mailto:syugha13@gmail.com"
                 className="text-gray-800 hover:text-orange-500 transition-colors flex items-center"
               >
                 <svg
@@ -58,9 +57,9 @@ export default function FloatingContact() {
                   ></path>
                 </svg>
                 Email Me
-              </Link>
+              </a>
               <a
-                href="tel:+15551234567"
+                href="tel:+91883370107"
                 className="text-gray-800 hover:text-orange-500 transition-colors flex items-center"
               >
                 <svg

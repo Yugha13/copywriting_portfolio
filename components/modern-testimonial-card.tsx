@@ -43,15 +43,7 @@ export default function ModernTestimonialCard({
       
       {/* Author info */}
       <div className="flex items-center">
-        <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-orange-100 dark:border-orange-900/30">
-          <Image
-            src={avatar || "/placeholder.svg"}
-            alt={author}
-            width={48}
-            height={48}
-            className="h-full w-full object-cover"
-          />
-        </div>
+        
         <div className="ml-4">
           <h4 className="font-semibold text-gray-900 dark:text-white">{author}</h4>
           <p className="text-sm text-gray-500 dark:text-gray-400">{position}</p>
