@@ -14,24 +14,26 @@ import ModernProjectCard from "@/components/modern-project-card"
 import ServiceCard from "@/components/modern-service-card"
 import TestimonialCard from "@/components/modern-testimonial-card"
 import GlassCard from "@/components/glass-card"
-
+import ParticleBackground from "@/components/particle-background"
+import SkillsSection from "@/components/skills-section"
 
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
+      <ParticleBackground />
       <ShrinkingNavbar />
       <FloatingContact />
 
       {/* Hero Section */}
       <AnimatedGradientBg>
         <ParallaxSection className="relative px-4 py-20 md:py-32 flex flex-col items-center text-center min-h-screen justify-center">
-          <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="relative inline-block">
-              <span className="text-lg bg-white/90 px-4 py-1 rounded-full relative backdrop-blur-sm shadow-lg">
-                Hello!
-                <div className="absolute -right-6 -top-6">
-                  <Star className="text-orange-500 fill-orange-500" size={24} />
+          <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="relative inline-block transform hover:scale-105 transition-transform duration-300">
+              <span className="text-lg bg-white/95 px-6 py-2 rounded-full relative backdrop-blur-md shadow-xl border border-orange-100/30">
+                Hello! Welcome to my portfolio
+                <div className="absolute -right-4 -top-4 animate-pulse">
+                  <Star className="text-orange-500 fill-orange-500" size={28} />
                 </div>
               </span>
             </div>
@@ -209,7 +211,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Stats Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600"></div>
@@ -248,6 +249,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Skills Section */}
+      <SkillsSection />
+
     
 
       {/* Project Section */}
@@ -279,6 +284,7 @@ export default function Home() {
               link="#"
               index={0}
               isVideo={true}
+              className="transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:z-10 bg-gradient-to-br from-white to-orange-50/30 backdrop-blur-sm rounded-2xl border border-orange-100/20"
             />
 
             <ModernProjectCard
@@ -403,6 +409,7 @@ export default function Home() {
               author="Uday"
               position="KiudTech, Private Company"
               avatar="UD"
+              
             />
 
             <TestimonialCard
